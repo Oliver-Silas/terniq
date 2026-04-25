@@ -2,73 +2,51 @@
 
 Terniq is a Codex-native workflow plugin for serious software work.
 
-It packages eight durable engineering workflows into a plugin structure that fits Codex directly:
+It adds a practical layer on top of coding agents:
 
-- `skills/` hold the main workflow contracts
-- `agents/` hold specialist sidecars
-- `commands/` provide explicit entry points
-- `.codex-plugin/plugin.json` provides plugin metadata
-
-The product goal is simple:
-
-- plan before coding
+- plan before implementation
 - debug from evidence
 - review before merge
 - design with intent
-- read sources cleanly
-- research without bluffing
+- read and research without bluffing
 - edit writing without AI stiffness
 - audit the Codex environment itself
 
-## Why
+Terniq is not trying to be another bag of prompts. It is a workflow pack:
 
-Terniq exists because speed without discipline is just a faster path to drift.
+- `skills/` are the main workflows
+- `agents/` are specialist sidecars
+- `commands/` are explicit user entry points
 
-A strong coding agent should not only write code. It should help decide what is worth building, isolate root causes before patching, review diffs before merge, read source material without hallucinating, and keep the operating environment itself legible.
+![Terniq workflow](./assets/terniq-workflow.svg)
 
-Terniq packages those habits into a Codex-native shape instead of treating Codex as a compatibility target.
+## Why Terniq
 
-## V1 Scope
+Most agent workflows fail in predictable ways:
 
-The first release ships the full workflow suite:
+- they code before they think
+- they patch before they isolate root cause
+- they "review" without real verification
+- they rewrite text by changing the meaning
 
-- `terniq-think`
-- `terniq-design`
-- `terniq-check`
-- `terniq-hunt`
-- `terniq-read`
-- `terniq-learn`
-- `terniq-write`
-- `terniq-health`
+Terniq exists to push the opposite habits into the default loop.
 
-It also ships:
+## What You Get
 
-- 5 specialist agents
-- 8 explicit commands
-- the plugin manifest
+### 8 core skills
 
-## Workflow Suite
+| Skill | What it does |
+| --- | --- |
+| `terniq-think` | plan, evaluate tradeoffs, and shape implementation before coding |
+| `terniq-design` | guide UI direction and frontend iteration with browser-aware discipline |
+| `terniq-check` | review diffs, triage changes, and enforce verification |
+| `terniq-hunt` | debug from symptoms to root cause before fixing |
+| `terniq-read` | ingest external links, pages, and documents cleanly |
+| `terniq-learn` | research unfamiliar topics and synthesize findings |
+| `terniq-write` | polish existing prose without changing meaning |
+| `terniq-health` | audit Codex environment drift, plugins, and workflow setup |
 
-### Skills
-
-- `terniq-think`: planning, evaluation, and pre-implementation design judgment
-- `terniq-design`: intentional UI direction, screenshot iteration, and browser-verified frontend work
-- `terniq-check`: diff review, triage, specialist review, and verification discipline
-- `terniq-hunt`: root-cause debugging before any fix
-- `terniq-read`: external material ingestion and normalization
-- `terniq-learn`: research and synthesis from source material
-- `terniq-write`: rewrite and edit prose without changing meaning
-- `terniq-health`: audit the Codex operating environment
-
-### Agents
-
-- `reviewer-security`
-- `reviewer-architecture`
-- `reviewer-frontend`
-- `researcher`
-- `environment-auditor`
-
-### Commands
+### 8 explicit commands
 
 - `/terniq:plan`
 - `/terniq:design`
@@ -79,54 +57,144 @@ It also ships:
 - `/terniq:edit`
 - `/terniq:health`
 
-## Common Workflow Chains
+### 5 specialist agents
 
-Terniq skills are intentionally composable, but transitions are explicit.
+- `reviewer-security`
+- `reviewer-architecture`
+- `reviewer-frontend`
+- `researcher`
+- `environment-auditor`
 
-- Plan a feature: `terniq-think` -> implement -> `terniq-check`
-- Debug a bug: `terniq-hunt` -> fix -> `terniq-check`
-- Research and write: `terniq-read` -> `terniq-learn` -> `terniq-write`
-- Design and verify UI: `terniq-design` -> browser verification -> `terniq-check`
-- Audit the environment: `terniq-health` -> fix drift -> rerun `terniq-health`
+## Quick Start
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Oliver-Silas/terniq.git
+cd terniq
+```
+
+### 2. Create a local Codex marketplace wrapper
+
+Codex currently expects a marketplace root, not just a bare plugin repo.
+
+Use this once:
+
+```bash
+TERNIQ_REPO="$(pwd)"
+TERNIQ_MARKETPLACE="$HOME/.codex/local-marketplaces/terniq"
+
+mkdir -p "$TERNIQ_MARKETPLACE/.agents/plugins"
+mkdir -p "$TERNIQ_MARKETPLACE/plugins"
+
+ln -sfn "$TERNIQ_REPO" "$TERNIQ_MARKETPLACE/plugins/terniq"
+
+cat > "$TERNIQ_MARKETPLACE/.agents/plugins/marketplace.json" <<'JSON'
+{
+  "name": "terniq",
+  "interface": {
+    "displayName": "Terniq"
+  },
+  "plugins": [
+    {
+      "name": "terniq",
+      "source": {
+        "source": "local",
+        "path": "./plugins/terniq"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
+JSON
+```
+
+### 3. Add the marketplace to Codex
+
+```bash
+codex plugin marketplace add "$HOME/.codex/local-marketplaces/terniq"
+```
+
+### 4. Enable the plugin
+
+Enable `terniq@terniq` in Codex plugin settings.
+
+If you manage it through config directly, add:
+
+```toml
+[plugins."terniq@terniq"]
+enabled = true
+```
+
+Then restart Codex if the current session does not hot-load the new plugin.
+
+## Try It In 2 Minutes
+
+After installation, start with any of these:
+
+```text
+/terniq:plan Help me shape this feature before implementation
+/terniq:review Review this diff before I merge it
+/terniq:debug Help me isolate why this test is failing
+/terniq:research Read these links and turn them into a crisp synthesis
+/terniq:health Audit my Codex setup and tell me what is drifting
+```
+
+Or use natural prompts:
+
+- "Review this diff before I merge it."
+- "Help me debug this failing integration."
+- "Plan this feature before we implement it."
+- "Read these docs, then summarize the tradeoffs."
+- "Check whether my Codex environment is drifting."
+
+## Typical Workflows
+
+Terniq is designed to chain cleanly:
+
+- `terniq-think` -> implement -> `terniq-check`
+- `terniq-hunt` -> fix -> `terniq-check`
+- `terniq-read` -> `terniq-learn` -> `terniq-write`
+- `terniq-design` -> browser verification -> `terniq-check`
+- `terniq-health` -> fix drift -> rerun `terniq-health`
 
 ## How Terniq Is Organized
 
-`skills` are the product.
+### `skills/`
 
-`agents` are internal specialists that a skill may invoke when the work gets broad or needs parallel scrutiny.
+This is the product surface. Each skill defines one durable workflow contract.
 
-`commands` are explicit entry points for users who do not want to rely on latent discovery.
+### `agents/`
 
-The three layers are complementary, not redundant.
+These are specialist helpers used by the main workflows when the job gets broader or needs parallel scrutiny.
 
-## Structure
+### `commands/`
+
+These are deterministic entry points for users who want stable invocation instead of relying on latent matching.
+
+## Repository Layout
 
 ```text
 terniq/
-├── .agents/         # local marketplace wrapper
-├── .codex-plugin/   # plugin metadata
+├── .agents/         # local marketplace metadata kept in the repo
+├── .codex-plugin/   # plugin manifest
 ├── agents/          # specialist sidecars
-├── commands/        # explicit /terniq:* entry points
-├── docs/            # design and planning docs
+├── commands/        # explicit /terniq:* commands
+├── docs/            # design notes and planning docs
 ├── scripts/         # lightweight verification helpers
-└── skills/          # core workflows
+└── skills/          # core workflow definitions
 ```
-
-## Routing
-
-Terniq uses two entry styles:
-
-- latent discovery through skill descriptions and trigger phrases
-- explicit commands such as `/terniq:review`
-
-The canonical routing rules live in [skills/RESOLVER.md](/Volumes/new-room/code-web-app/terniq/skills/RESOLVER.md).
 
 ## Verification
 
-Use the lightweight verification script after changing skill names, command ownership, or README workflow lists:
+After changing skill names, command ownership, or README workflow lists, run:
 
 ```bash
-bash /Volumes/new-room/code-web-app/terniq/scripts/verify-terniq.sh
+bash ./scripts/verify-terniq.sh
 ```
 
 The script checks:
@@ -136,77 +204,54 @@ The script checks:
 - command ownership points to real skills
 - README and resolver still mention all skills and commands
 
-## Local Install
+## Current Status
 
-Terniq now includes a local Codex marketplace wrapper at [.agents/plugins/marketplace.json](/Volumes/new-room/code-web-app/terniq/.agents/plugins/marketplace.json).
+Terniq is usable today, but still early.
 
-The intended local install flow is:
+Current state:
 
-```bash
-codex plugin marketplace add /Volumes/new-room/code-web-app/terniq
-```
+- full first-pass workflow suite is implemented
+- local Codex installation path is verified
+- commands, agents, and routing are in place
+- repo structure is stable enough for iteration
 
-This works because Codex expects a marketplace root, not just a bare plugin directory. The marketplace wrapper points back to the plugin root and gives Codex deterministic metadata for discovery and enablement.
+Still improving:
 
-After the marketplace is added, enable `terniq@terniq` in Codex plugin settings.
+- richer discovery metadata
+- smoother installation flow
+- better marketplace-ready assets
+- more real-world trigger testing
 
-If you are working directly from config, the enablement entry is:
+## Open Source Notes
 
-```toml
-[plugins."terniq@terniq"]
-enabled = true
-```
+Terniq is published as an open repository so others can:
 
-If the current session does not hot-load newly enabled plugins, restart Codex and open a fresh thread.
+- install it locally
+- inspect how the workflows are structured
+- adapt the patterns into their own Codex setup
+- contribute improvements back upstream
 
-## Installation Status
+If you want to contribute, start with [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-This repo is structured as a Codex plugin project and now includes a first-pass local marketplace manifest for real install testing.
+## Who This Is For
 
-What remains is not structural packaging anymore. It is runtime verification:
+Terniq is a good fit if you:
 
-- confirm a fresh Codex session loads the plugin and exposes its skills
-- confirm skill discovery wording is strong enough in real use
+- use Codex heavily and want more disciplined workflows
+- review code often and care about verification, not just vibes
+- debug real systems and hate guess-first patching
+- want reusable workflows instead of one-off prompt snippets
 
-## Current State
+It is probably not for you if you only want generic "make this better" prompts with no structure.
 
-This repository now contains:
+## Docs
 
-- the plugin manifest
-- the eight first-pass skill definitions
-- the five specialist agents
-- the eight command entry docs
-- the first design spec
-- the routing map
-- the lightweight verification script
+- [Design spec](./docs/2026-04-25-v1-design.md)
+- [Plugin manifest](./.codex-plugin/plugin.json)
+- [Skills map](./skills/AGENTS.md)
+- [Routing map](./skills/RESOLVER.md)
+- [Verification script](./scripts/verify-terniq.sh)
 
-The remaining work is no longer structural. It is product refinement:
+## License
 
-- tighten discovery metadata
-- test real Codex triggering behavior
-- improve installation and packaging flow
-- add marketplace-ready assets and polish
-
-## Limitations Right Now
-
-- no published remote marketplace yet
-- no asset pack or branded icon set yet
-- no automated end-to-end trigger test yet
-- command docs are strong contracts, but not yet backed by a richer command runtime layer
-
-## Local Development Priorities
-
-The recommended implementation order from here:
-
-1. test direct use inside Codex
-2. adjust wording based on real trigger behavior
-3. improve packaging and installation flow
-4. add presentation assets for a publishable release
-
-## Reference Docs
-
-- Design spec: [docs/2026-04-25-v1-design.md](/Volumes/new-room/code-web-app/terniq/docs/2026-04-25-v1-design.md)
-- Plugin manifest: [.codex-plugin/plugin.json](/Volumes/new-room/code-web-app/terniq/.codex-plugin/plugin.json)
-- Skills map: [skills/AGENTS.md](/Volumes/new-room/code-web-app/terniq/skills/AGENTS.md)
-- Routing map: [skills/RESOLVER.md](/Volumes/new-room/code-web-app/terniq/skills/RESOLVER.md)
-- Verification script: [scripts/verify-terniq.sh](/Volumes/new-room/code-web-app/terniq/scripts/verify-terniq.sh)
+[MIT](./LICENSE)

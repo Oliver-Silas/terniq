@@ -4,10 +4,10 @@
   "description": "Codex-native workflow plugin for serious software work: planning, design, review, debugging, reading, research, writing, and environment health.",
   "author": {
     "name": "Yuzeiki",
-    "url": "https://github.com/yuzeiki"
+    "url": "https://github.com/Oliver-Silas"
   },
-  "homepage": "https://github.com/yuzeiki/terniq",
-  "repository": "https://github.com/yuzeiki/terniq",
+  "homepage": "https://github.com/Oliver-Silas/terniq",
+  "repository": "https://github.com/Oliver-Silas/terniq",
   "license": "MIT",
   "keywords": [
     "codex",
@@ -38,6 +38,6 @@
       "Audit my Codex setup and tell me what is drifting"
     ],
     "brandColor": "#111827",
-    "websiteURL": "https://github.com/yuzeiki/terniq"
+    "websiteURL": "https://github.com/Oliver-Silas/terniq"
   }
 }
