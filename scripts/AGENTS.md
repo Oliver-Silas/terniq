@@ -3,6 +3,7 @@
 
 成员清单
 AGENTS.md: scripts 目录地图，说明轻量校验脚本的职责边界。
+install.sh: 一键安装脚本，负责本地拉取仓库、创建 marketplace wrapper、接入 Codex 并启用插件。
 verify-terniq.sh: 结构一致性校验脚本，检查 skills、commands、README 与 resolver 是否同步。
 
 架构决策
@@ -13,5 +14,6 @@ verify-terniq.sh: 结构一致性校验脚本，检查 skills、commands、READM
 
 变更日志
 2026-04-25: 初始化 scripts 目录并加入 `verify-terniq.sh` 作为轻量自校验入口。
+2026-04-25: 新增 `install.sh` 作为开源仓一键试用入口。
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

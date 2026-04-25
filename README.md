@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/terniq-hero.png" alt="Terniq hero" width="1000" />
+  <img src="./assets/terniq-logo.png" alt="Terniq logo" width="108" />
   <h1>Terniq</h1>
   <p><b>Codex-native workflows for serious software work.</b></p>
   <p>Plan clearly. Build deliberately. Review responsibly.</p>
@@ -10,6 +10,10 @@
 </div>
 
 <br/>
+
+<div align="center">
+  <img src="./assets/terniq-social-preview.png" alt="Terniq banner" width="1000" />
+</div>
 
 ## Why
 
@@ -62,85 +66,24 @@ If you want stable invocation instead of relying on latent matching:
 - `/terniq:edit`
 - `/terniq:health`
 
-## Chaining Skills
-
-Terniq is designed to chain, but transitions stay explicit.
-
-**Common workflows:**
-
-- **Design a feature**: `terniq-think` -> implement -> `terniq-check`
-- **Debug and verify**: `terniq-hunt` -> fix -> `terniq-check`
-- **Research and write**: `terniq-read` -> `terniq-learn` -> `terniq-write`
-- **Audit the environment**: `terniq-health` -> fix drift -> rerun `terniq-health`
-
-Each arrow is a deliberate user step. Skills do not silently trigger each other.
-
 ## Install
 
 Terniq is currently distributed as a local Codex marketplace plugin.
 
-### 1. Clone the repo
+### One-command install
 
 ```bash
-git clone https://github.com/Oliver-Silas/terniq.git
-cd terniq
+curl -fsSL https://raw.githubusercontent.com/Oliver-Silas/terniq/main/scripts/install.sh | bash
 ```
 
-### 2. Create the local marketplace wrapper
+What the installer does:
 
-Codex expects a marketplace root, not just a bare plugin repository.
+- clones or updates Terniq into `~/.codex/local-plugins/terniq`
+- creates the local marketplace wrapper at `~/.codex/local-marketplaces/terniq/.agents/plugins/marketplace.json`
+- registers the marketplace with Codex
+- enables `terniq@terniq` in `~/.codex/config.toml`
 
-```bash
-TERNIQ_REPO="$(pwd)"
-TERNIQ_MARKETPLACE="$HOME/.codex/local-marketplaces/terniq"
-
-mkdir -p "$TERNIQ_MARKETPLACE/.agents/plugins"
-mkdir -p "$TERNIQ_MARKETPLACE/plugins"
-
-ln -sfn "$TERNIQ_REPO" "$TERNIQ_MARKETPLACE/plugins/terniq"
-
-cat > "$TERNIQ_MARKETPLACE/.agents/plugins/marketplace.json" <<'JSON'
-{
-  "name": "terniq",
-  "interface": {
-    "displayName": "Terniq"
-  },
-  "plugins": [
-    {
-      "name": "terniq",
-      "source": {
-        "source": "local",
-        "path": "./plugins/terniq"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_USE"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
-JSON
-```
-
-### 3. Add the marketplace to Codex
-
-```bash
-codex plugin marketplace add "$HOME/.codex/local-marketplaces/terniq"
-```
-
-### 4. Enable the plugin
-
-Turn on `terniq@terniq` in Codex plugin settings.
-
-If you prefer config directly:
-
-```toml
-[plugins."terniq@terniq"]
-enabled = true
-```
-
-Then restart Codex if the current session does not hot-load the plugin.
+If the current Codex session does not hot-load the plugin, restart Codex once after install.
 
 ## Try It
 
@@ -162,9 +105,22 @@ Or use natural prompts:
 - "Read these docs, then summarize the tradeoffs."
 - "Check whether my Codex environment is drifting."
 
+## Chaining Skills
+
+Terniq is designed to chain, but transitions stay explicit.
+
+**Common workflows:**
+
+- **Design a feature**: `terniq-think` -> implement -> `terniq-check`
+- **Debug and verify**: `terniq-hunt` -> fix -> `terniq-check`
+- **Research and write**: `terniq-read` -> `terniq-learn` -> `terniq-write`
+- **Audit the environment**: `terniq-health` -> fix drift -> rerun `terniq-health`
+
+Each arrow is a deliberate user step. Skills do not silently trigger each other.
+
 ## Verification
 
-After changing skill names, command ownership, or README workflow lists, run:
+After changing skill names, command ownership, install behavior, or README workflow lists, run:
 
 ```bash
 bash ./scripts/verify-terniq.sh
@@ -187,7 +143,7 @@ terniq/
 ├── assets/          # README visuals and brand assets
 ├── commands/        # explicit /terniq:* entry points
 ├── docs/            # design notes and planning docs
-├── scripts/         # lightweight verification helpers
+├── scripts/         # install and verification helpers
 └── skills/          # core workflow definitions
 ```
 

@@ -38,6 +38,11 @@
       "Audit my Codex setup and tell me what is drifting"
     ],
     "brandColor": "#111827",
-    "websiteURL": "https://github.com/Oliver-Silas/terniq"
+    "websiteURL": "https://github.com/Oliver-Silas/terniq",
+    "composerIcon": "./assets/terniq-logo.png",
+    "logo": "./assets/terniq-logo.png",
+    "screenshots": [
+      "./assets/terniq-social-preview.png"
+    ]
   }
 }
