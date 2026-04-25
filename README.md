@@ -2,7 +2,7 @@
   <img src="./assets/terniq-logo.png" alt="Terniq logo" width="108" />
   <h1>Terniq</h1>
   <p><b>Codex-native workflows for serious software work.</b></p>
-  <p>Plan clearly. Build deliberately. Review responsibly.</p>
+  <p>Plan clearly. Debug from evidence. Review before merge.</p>
   <a href="https://github.com/Oliver-Silas/terniq/stargazers"><img src="https://img.shields.io/github/stars/Oliver-Silas/terniq?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/Oliver-Silas/terniq/releases"><img src="https://img.shields.io/github/v/tag/Oliver-Silas/terniq?label=version&sort=semver&style=flat-square" alt="Version"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
@@ -23,7 +23,7 @@ They start coding before they pressure-test the problem. They patch bugs before 
 
 Terniq exists to package the opposite habits into reusable workflows Codex can actually run.
 
-It is not a random prompt pack. It is a compact operating layer:
+It is not a random prompt pack. It is a compact operating layer for:
 
 - think before implementation
 - debug from evidence
@@ -31,6 +31,18 @@ It is not a random prompt pack. It is a compact operating layer:
 - read before synthesizing
 - write without AI stiffness
 - audit the environment when behavior feels off
+
+## What You Get
+
+Terniq gives you three layers that work together:
+
+- `skills/` for the main workflows
+- `agents/` for specialist sidecars
+- `commands/` for deterministic entry points
+
+If you only remember one thing, remember this:
+
+Terniq helps Codex slow down at the right moments.
 
 ## Skills
 
@@ -46,12 +58,6 @@ Each engineering habit maps to a focused skill.
 | [`terniq-learn`](./skills/terniq-learn/SKILL.md) | New domains or unfamiliar topics | Synthesizes what matters instead of dumping raw research notes. |
 | [`terniq-write`](./skills/terniq-write/SKILL.md) | Editing existing prose | Polishes writing without changing the author's meaning. |
 | [`terniq-health`](./skills/terniq-health/SKILL.md) | Codex setup or behavior drift | Audits plugins, routing, environment assumptions, and workflow drift. |
-
-Each skill is backed by the same product shape:
-
-- `skills/` define the main workflow contracts
-- `agents/` provide specialist sidecars
-- `commands/` expose deterministic entry points
 
 ## Commands
 
@@ -85,7 +91,11 @@ What the installer does:
 
 If the current Codex session does not hot-load the plugin, restart Codex once after install.
 
-## Try It
+### Manual install
+
+If you prefer to inspect the install flow first, read [scripts/install.sh](./scripts/install.sh).
+
+## Try It In 2 Minutes
 
 Start with one of these:
 
@@ -117,6 +127,17 @@ Terniq is designed to chain, but transitions stay explicit.
 - **Audit the environment**: `terniq-health` -> fix drift -> rerun `terniq-health`
 
 Each arrow is a deliberate user step. Skills do not silently trigger each other.
+
+## Who This Is For
+
+Terniq is a good fit if you:
+
+- use Codex heavily and want more disciplined workflows
+- review code often and care about verification, not just vibes
+- debug real systems and hate guess-first patching
+- want reusable workflows instead of one-off prompt snippets
+
+It is probably not for you if you only want generic "make this better" prompts with no structure.
 
 ## Verification
 
