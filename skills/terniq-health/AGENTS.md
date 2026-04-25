@@ -1,17 +1,17 @@
 # terniq-health/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
 
-成员清单
-AGENTS.md: `terniq-health` 模块地图，说明 Codex 环境审计 workflow 的边界。
-SKILL.md: `terniq-health` skill 定义，负责审计 AGENTS、skills、plugins、connectors、automations 与验证纪律。
+Members
+AGENTS.md: `terniq-health` module map describing the boundaries of the Codex environment-audit workflow.
+SKILL.md: `terniq-health` skill definition covering audits of AGENTS, skills, plugins, connectors, automations, and verification discipline.
 
-架构决策
-`terniq-health` 审的是 Codex 现实，不是其他宿主的历史结构；它只关心会直接影响行为质量的环境层。
+Architecture Decisions
+`terniq-health` audits present-day Codex reality, not the historical structure of other hosts. It only cares about environment layers that directly affect behavior quality.
 
-开发规范
-扩展本 skill 时，优先明确审计层次、缺失数据处理与可执行修复建议，不把它膨胀成平台百科全书。
+Development Rules
+When extending this skill, make the audit layers, missing-data handling, and executable repair advice explicit. Do not let it bloat into a platform encyclopedia.
 
-变更日志
-2026-04-25: 初始化 `terniq-health` skill 骨架。
+Change Log
+2026-04-25: Initialized the `terniq-health` skill skeleton.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

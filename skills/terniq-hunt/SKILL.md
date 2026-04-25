@@ -1,7 +1,7 @@
 ---
 name: terniq-hunt
 description: Debug failures systematically, confirm root cause before applying any fix, and prefer runtime evidence over guessed explanations.
-when_to_use: debug this, why is this broken, failing test, 报错了, 为什么不工作, 帮我定位问题
+when_to_use: debug this, why is this broken, failing test, there is an error, why does this not work, help me locate the issue
 metadata:
   version: "0.1.0"
 ---

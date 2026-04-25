@@ -1,7 +1,7 @@
 ---
 name: terniq-read
 description: Fetch and normalize URLs or PDFs into usable material, save or report the result, and stop before analysis unless explicitly asked.
-when_to_use: read this url, fetch this page, save this pdf, 看这个链接, 读一下这个网页, 抓一下这个文档
+when_to_use: read this url, fetch this page, save this pdf, inspect this link, read this page, fetch this document
 metadata:
   version: "0.1.0"
 ---
@@ -71,8 +71,8 @@ Do not fetch images by default.
 Only collect or download images when the user explicitly asks for:
 
 - save images
-- 带图
-- 下载图片
+- include images
+- download images
 - include the image assets
 
 ## Hard Rules

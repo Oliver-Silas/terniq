@@ -1,7 +1,7 @@
 ---
 name: terniq-health
 description: Audit the Codex operating environment, including AGENTS instructions, skill layout, plugin visibility, connectors, automations, and verification discipline.
-when_to_use: audit codex, check my codex setup, why is codex weird, 检查下 codex 环境, 看下配置对不对
+when_to_use: audit codex, check my codex setup, why is codex weird, check my Codex environment, verify whether the setup is correct
 metadata:
   version: "0.1.0"
 ---

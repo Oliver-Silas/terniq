@@ -1,17 +1,17 @@
 # terniq-check/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
 
-成员清单
-AGENTS.md: `terniq-check` 模块地图，说明 review workflow 与 specialist agent 调度边界。
-SKILL.md: `terniq-check` skill 定义，负责 diff review、triage 与交付前验证。
+Members
+AGENTS.md: `terniq-check` module map describing the boundaries of the review workflow and specialist agent dispatch.
+SKILL.md: `terniq-check` skill definition covering diff review, triage, and pre-delivery verification.
 
-架构决策
-`terniq-check` 是交付前闸门，拥有 scope drift、严重级别、验证证据与 specialist review 的主导权。
+Architecture Decisions
+`terniq-check` is the pre-delivery gate. It owns scope drift calls, severity classification, verification evidence, and specialist review dispatch.
 
-开发规范
-扩展本 skill 时，优先强化 findings 质量、验证纪律与 agent 触发条件，不把它改成泛泛“看看代码”模式。
+Development Rules
+When extending this skill, strengthen finding quality, verification discipline, and agent trigger conditions. Do not let it collapse into a vague "take a look at the code" mode.
 
-变更日志
-2026-04-25: 初始化 `terniq-check` skill 骨架。
+Change Log
+2026-04-25: Initialized the `terniq-check` skill skeleton.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

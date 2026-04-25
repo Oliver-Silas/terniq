@@ -1,24 +1,24 @@
 # commands/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/AGENTS.md
 
-成员清单
-AGENTS.md: command 目录地图，定义 `/terniq:*` 显式入口与所属 workflow。
-debug.md: `/terniq:debug` 命令说明，路由到 `terniq-hunt`。
-design.md: `/terniq:design` 命令说明，路由到 `terniq-design`。
-edit.md: `/terniq:edit` 命令说明，路由到 `terniq-write`。
-health.md: `/terniq:health` 命令说明，路由到 `terniq-health`。
-plan.md: `/terniq:plan` 命令说明，路由到 `terniq-think`。
-read.md: `/terniq:read` 命令说明，路由到 `terniq-read`。
-research.md: `/terniq:research` 命令说明，路由到 `terniq-learn`。
-review.md: `/terniq:review` 命令说明，路由到 `terniq-check`。
+Members
+AGENTS.md: Command directory map defining the explicit `/terniq:*` entrypoints and their owning workflows.
+debug.md: `/terniq:debug` command spec routed to `terniq-hunt`.
+design.md: `/terniq:design` command spec routed to `terniq-design`.
+edit.md: `/terniq:edit` command spec routed to `terniq-write`.
+health.md: `/terniq:health` command spec routed to `terniq-health`.
+plan.md: `/terniq:plan` command spec routed to `terniq-think`.
+read.md: `/terniq:read` command spec routed to `terniq-read`.
+research.md: `/terniq:research` command spec routed to `terniq-learn`.
+review.md: `/terniq:review` command spec routed to `terniq-check`.
 
-架构决策
-`commands/` 只提供显式入口，不复制 skill 的完整逻辑；命令层的职责是稳定触发，而不是形成第二套产品。
+Architecture Decisions
+`commands/` provides explicit entrypoints only. It must not duplicate full skill logic; the command layer exists to trigger workflows deterministically, not to become a second product surface.
 
-开发规范
-每个 command 文件必须明确指向唯一 owning skill；如果一个命令需要两个 workflow 才成立，说明边界设计有问题。
+Development Rules
+Every command file must point to exactly one owning skill. If a command only works by combining two workflows, the boundary design is wrong.
 
-变更日志
-2026-04-25: 建立 Terniq command 目录并登记 8 个首发命令入口。
+Change Log
+2026-04-25: Created the Terniq command directory and registered the 8 launch command entrypoints.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

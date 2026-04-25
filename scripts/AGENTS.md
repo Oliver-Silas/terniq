@@ -1,19 +1,19 @@
 # scripts/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/AGENTS.md
 
-成员清单
-AGENTS.md: scripts 目录地图，说明轻量校验脚本的职责边界。
-install.sh: 一键安装脚本，负责本地拉取仓库、创建 marketplace wrapper、接入 Codex 并启用插件。
-verify-terniq.sh: 结构一致性校验脚本，检查 skills、commands、README 与 resolver 是否同步。
+Members
+AGENTS.md: Scripts directory map describing the boundary for lightweight verification tooling.
+install.sh: One-command installer that clones the repository locally, creates the marketplace wrapper, wires it into Codex, and enables the plugin.
+verify-terniq.sh: Structural consistency checker that keeps skills, commands, the README, and the resolver synchronized.
 
-架构决策
-`scripts/` 只放确定性维护工具，不承载需要判断的 workflow；判断归 skills，校验归 scripts。
+Architecture Decisions
+`scripts/` only contains deterministic maintenance tools. It does not own judgment-heavy workflows; judgment belongs to skills, verification belongs to scripts.
 
-开发规范
-新增脚本时，优先保持零依赖或低依赖，并明确输入输出；避免把业务逻辑偷偷塞进校验脚本。
+Development Rules
+When adding a script, prefer zero-dependency or low-dependency designs and make the input/output contract explicit. Do not smuggle business logic into verification scripts.
 
-变更日志
-2026-04-25: 初始化 scripts 目录并加入 `verify-terniq.sh` 作为轻量自校验入口。
-2026-04-25: 新增 `install.sh` 作为开源仓一键试用入口。
+Change Log
+2026-04-25: Initialized the scripts directory and added `verify-terniq.sh` as the lightweight self-verification entrypoint.
+2026-04-25: Added `install.sh` as the one-command open-source trial entrypoint.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

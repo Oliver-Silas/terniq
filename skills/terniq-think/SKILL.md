@@ -1,7 +1,7 @@
 ---
 name: terniq-think
 description: Plan before implementation, evaluate whether work should exist, and pressure-test architecture or product directions before coding begins.
-when_to_use: plan this, think this through, should we build this, should we keep this, 给方案, 怎么设计, 值不值得, 判断一下方案
+when_to_use: plan this, think this through, should we build this, should we keep this, propose a plan, help me design this, is this worth it, evaluate this direction
 metadata:
   version: "0.1.0"
 ---
@@ -41,9 +41,9 @@ Typical triggers:
 
 - should we keep this
 - is this worth it
-- 有没有必要
-- 值不值得
-- 该不该保留
+- is this necessary
+- is this worth it
+- should we keep this
 
 Flow:
 

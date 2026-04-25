@@ -1,17 +1,17 @@
 # terniq-write/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
 
-成员清单
-AGENTS.md: `terniq-write` 模块地图，说明编辑与改稿 workflow 的边界。
-SKILL.md: `terniq-write` skill 定义，负责改写、润色与 CN/EN 文本一致性。
+Members
+AGENTS.md: `terniq-write` module map describing the boundaries of the editing and revision workflow.
+SKILL.md: `terniq-write` skill definition covering rewrites, polish, and CN/EN text consistency.
 
-架构决策
-`terniq-write` 只拥有编辑工作，不拥有研究、抓取或泛化内容生成；它的职责是让已有文本更自然、更准确。
+Architecture Decisions
+`terniq-write` owns editing only, not research, retrieval, or generalized content generation. Its responsibility is to make existing text more natural and more accurate.
 
-开发规范
-扩展本 skill 时，优先保护原意、保持结构稳定与 audience lock，不把它变成自由发挥写作器。
+Development Rules
+When extending this skill, protect original meaning, preserve structural stability, and keep audience lock. Do not turn it into a freestyle writing tool.
 
-变更日志
-2026-04-25: 初始化 `terniq-write` skill 骨架。
+Change Log
+2026-04-25: Initialized the `terniq-write` skill skeleton.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

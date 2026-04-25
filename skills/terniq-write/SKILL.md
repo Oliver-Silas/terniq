@@ -1,7 +1,7 @@
 ---
 name: terniq-write
 description: Rewrite and refine existing prose to sound more natural without changing meaning, with support for CN and EN editing flows.
-when_to_use: edit this text, rewrite this, polish this, 去 AI 味, 改稿, 润色一下
+when_to_use: edit this text, rewrite this, polish this, remove the AI stiffness, revise this draft, refine the wording
 metadata:
   version: "0.1.0"
 ---

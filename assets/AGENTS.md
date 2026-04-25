@@ -1,22 +1,22 @@
 # assets/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/AGENTS.md
 
-成员清单
-AGENTS.md: 视觉资源目录地图，说明 README 展示图与品牌素材边界。
-icons/: 多尺寸图标导出目录，承载 favicon、app icon 与平台兼容资源。
-terniq-logo.png: Terniq 品牌 logo，供 README、插件清单和后续仓库头像方向使用。
-terniq-social-preview.png: GitHub 社交分享图与 README banner，承载项目首屏视觉。
+Members
+AGENTS.md: Visual asset directory map describing the boundaries for README imagery and brand materials.
+icons/: Multi-size icon export directory for favicons, app icons, and platform-compatible assets.
+terniq-logo.png: Terniq brand logo used by the README, plugin manifest, and future repository avatar direction.
+terniq-social-preview.png: GitHub social preview image and README banner that carries the repository hero visual.
 
-架构决策
-`assets/` 只承载公开展示资源，不承载运行时代码，避免产品逻辑与文档视觉耦合。
+Architecture Decisions
+`assets/` holds public presentation resources only. It does not contain runtime code, which keeps product logic separate from documentation visuals.
 
-开发规范
-新增 README 用图时，优先保持极简、可复用、品牌一致；logo 与 banner 应使用同一视觉语言。
+Development Rules
+When adding README imagery, prefer minimal, reusable, brand-consistent assets. The logo and banner should share one visual language.
 
-变更日志
-2026-04-25: 初始化 `assets/` 并新增首张 workflow 图。
-2026-04-25: 将 README 主图从 `SVG` 草图替换为极简 raster hero 图，提升公开仓首页质感。
-2026-04-25: 新增 `terniq-logo.png` 与 `terniq-social-preview.png`，补齐品牌入口与 GitHub 社交分享图。
-2026-04-25: 新增 `icons/` 作为多尺寸 favicon 与 app icon 导出目录。
+Change Log
+2026-04-25: Initialized `assets/` and added the first workflow visual.
+2026-04-25: Replaced the README hero from an `SVG` sketch with a minimal raster hero image for a stronger public-repo presentation.
+2026-04-25: Added `terniq-logo.png` and `terniq-social-preview.png` to complete the brand entrypoint and GitHub social preview.
+2026-04-25: Added `icons/` as the export directory for multi-size favicons and app icons.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

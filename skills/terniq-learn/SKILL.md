@@ -1,7 +1,7 @@
 ---
 name: terniq-learn
 description: Turn unfamiliar topics or collected sources into structured understanding, research notes, or source-backed drafts.
-when_to_use: research this, learn this topic, deep dive, 研究一下, 学习一下, 整理这些资料
+when_to_use: research this, learn this topic, deep dive, investigate this, study this topic, organize these materials
 metadata:
   version: "0.1.0"
 ---

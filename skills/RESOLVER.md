@@ -16,35 +16,35 @@ If `SKILL.md` descriptions or command ownership changes, update this file in the
 
 | Trigger | Skill |
 |---------|-------|
-| feature planning, architecture choice, "how should we build this", "is this worth it", "should we keep this", 给方案, 怎么设计, 值不值得 | `skills/terniq-think/SKILL.md` |
-| UI direction, redesign, visible interface work, screenshot complaint, 做页面, 做组件, 样式不对 | `skills/terniq-design/SKILL.md` |
+| feature planning, architecture choice, "how should we build this", "is this worth it", "should we keep this", propose a plan, help me design this, evaluate the direction | `skills/terniq-think/SKILL.md` |
+| UI direction, redesign, visible interface work, screenshot complaint, build this page, design this component, the styling feels off | `skills/terniq-design/SKILL.md` |
 
 ### Post-Build
 
 | Trigger | Skill |
 |---------|-------|
-| review this diff, before merge, 看看代码, 合并前检查, review my changes | `skills/terniq-check/SKILL.md` |
+| review this diff, before merge, review the code, check this before merge, review my changes | `skills/terniq-check/SKILL.md` |
 | issue triage, PR triage, review all, batch review | `skills/terniq-check/SKILL.md` (Triage Mode) |
 
 ### Diagnostic
 
 | Trigger | Skill |
 |---------|-------|
-| failing test, broken behavior, debug this, 报错了, 为什么不工作 | `skills/terniq-hunt/SKILL.md` |
-| Codex feels inconsistent, plugin drift, connector mismatch, environment audit, 检查下 codex 环境 | `skills/terniq-health/SKILL.md` |
+| failing test, broken behavior, debug this, there is an error, why does this not work | `skills/terniq-hunt/SKILL.md` |
+| Codex feels inconsistent, plugin drift, connector mismatch, environment audit, check my Codex environment | `skills/terniq-health/SKILL.md` |
 
 ### Content In
 
 | Trigger | Skill |
 |---------|-------|
-| read this URL, fetch this page, save this PDF, 看这个链接, 抓一下这个文档 | `skills/terniq-read/SKILL.md` |
+| read this URL, fetch this page, save this PDF, inspect this link, fetch this document | `skills/terniq-read/SKILL.md` |
 
 ### Content Throughput
 
 | Trigger | Skill |
 |---------|-------|
-| research this topic, deep dive, 学习一下, 研究一下, 整理这些资料 | `skills/terniq-learn/SKILL.md` |
-| edit this text, rewrite this, 去 AI 味, 改稿, 润色一下 | `skills/terniq-write/SKILL.md` |
+| research this topic, deep dive, learn this topic, investigate this, organize these materials | `skills/terniq-learn/SKILL.md` |
+| edit this text, rewrite this, remove the AI stiffness, revise this draft, polish this | `skills/terniq-write/SKILL.md` |
 
 ## Disambiguation
 

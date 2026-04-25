@@ -1,17 +1,17 @@
 # terniq-read/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
 
-成员清单
-AGENTS.md: `terniq-read` 模块地图，说明外部材料读取与保存 workflow 的边界。
-SKILL.md: `terniq-read` skill 定义，负责 URL/PDF 取回、归一化与保存报告。
+Members
+AGENTS.md: `terniq-read` module map describing the boundaries of the external-material retrieval and saving workflow.
+SKILL.md: `terniq-read` skill definition covering URL/PDF retrieval, normalization, and save reporting.
 
-架构决策
-`terniq-read` 是 ingestion workflow，不负责研究总结；它负责把外部材料变成可用输入。
+Architecture Decisions
+`terniq-read` is an ingestion workflow, not a research summarizer. Its job is to turn external material into usable input.
 
-开发规范
-扩展本 skill 时，优先明确路由、保存策略与停止边界，不把解释和分析混进来。
+Development Rules
+When extending this skill, make routing, save strategy, and stop boundaries explicit. Do not mix in explanation or analysis.
 
-变更日志
-2026-04-25: 初始化 `terniq-read` skill 骨架。
+Change Log
+2026-04-25: Initialized the `terniq-read` skill skeleton.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md

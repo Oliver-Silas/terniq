@@ -1,7 +1,7 @@
 ---
 name: terniq-check
 description: Review diffs before merge, classify findings, invoke specialist reviewers when needed, and require real verification evidence.
-when_to_use: review this, check my changes, before merge, 看看代码, 合并前检查, 看看 PR, review diff
+when_to_use: review this, check my changes, before merge, review the code, check this before merge, review this PR, review diff
 metadata:
   version: "0.1.0"
 ---

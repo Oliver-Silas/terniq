@@ -1,7 +1,7 @@
 ---
 name: terniq-design
 description: Build intentional interfaces, handle screenshot-driven iteration, and require browser verification for visible work.
-when_to_use: design this, redesign this page, fix this UI, looks wrong, 做页面, 做组件, 样式不对, 设计一下
+when_to_use: design this, redesign this page, fix this UI, looks wrong, build this page, build this component, the styling feels off
 metadata:
   version: "0.1.0"
 ---

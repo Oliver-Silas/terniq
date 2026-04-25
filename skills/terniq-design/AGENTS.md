@@ -1,17 +1,17 @@
 # terniq-design/
-> L2 | 父级: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
+> L2 | Parent: /Volumes/new-room/code-web-app/terniq/skills/AGENTS.md
 
-成员清单
-AGENTS.md: `terniq-design` 模块地图，说明视觉与前端方向 workflow 的边界。
-SKILL.md: `terniq-design` skill 定义，负责 UI 方向锁定、截图迭代与浏览器验收。
+Members
+AGENTS.md: `terniq-design` module map describing the boundaries of the visual and frontend-direction workflow.
+SKILL.md: `terniq-design` skill definition covering UI direction setting, screenshot iteration, and browser acceptance.
 
-架构决策
-`terniq-design` 只拥有视觉与交互方向，不处理纯后端逻辑；任何可见改动都应把浏览器验证当作 workflow 组成部分。
+Architecture Decisions
+`terniq-design` owns visual and interaction direction only. It does not handle pure backend logic, and every visible change should treat browser verification as part of the workflow.
 
-开发规范
-扩展本 skill 时，优先明确设计方向、验证步骤与前端边界，不让它退化成泛泛样式建议。
+Development Rules
+When extending this skill, make the design direction, verification steps, and frontend boundary explicit. Do not let it degrade into generic style advice.
 
-变更日志
-2026-04-25: 初始化 `terniq-design` skill 骨架。
+Change Log
+2026-04-25: Initialized the `terniq-design` skill skeleton.
 
 [PROTOCOL]: 变更时更新此头部，然后检查 AGENTS.md
