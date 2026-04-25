@@ -4,7 +4,7 @@
   <p><b>Codex-native workflows for serious software work.</b></p>
   <p>Plan clearly. Build deliberately. Review responsibly.</p>
   <a href="https://github.com/Oliver-Silas/terniq/stargazers"><img src="https://img.shields.io/github/stars/Oliver-Silas/terniq?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/Oliver-Silas/terniq/releases"><img src="https://img.shields.io/badge/version-v0.1.0-111827?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/Oliver-Silas/terniq/releases"><img src="https://img.shields.io/github/v/tag/Oliver-Silas/terniq?label=version&sort=semver&style=flat-square" alt="Version"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/codex-native-0f172a?style=flat-square" alt="Codex Native">
 </div>
@@ -170,6 +170,25 @@ Start here:
 - [Design spec](./docs/2026-04-25-v1-design.md)
 - [Skills map](./skills/AGENTS.md)
 - [Routing map](./skills/RESOLVER.md)
+
+## Support
+
+If Terniq is useful to you:
+
+- give the repo a star
+- open an issue when something feels off
+- send a PR if you improve a workflow
+
+This project is still early, so the most valuable support is concrete usage feedback.
+
+## Roadmap
+
+Near-term directions:
+
+- smoother marketplace install flow with less local setup ceremony
+- stronger real-world verification around trigger quality
+- richer plugin presentation assets and release hygiene
+- deeper specialist review patterns for larger code changes
 
 ## License
 

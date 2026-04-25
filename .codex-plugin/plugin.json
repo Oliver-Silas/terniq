@@ -1,6 +1,6 @@
 {
   "name": "terniq",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Codex-native workflow plugin for serious software work: planning, design, review, debugging, reading, research, writing, and environment health.",
   "author": {
     "name": "Yuzeiki",
@@ -39,7 +39,7 @@
     ],
     "brandColor": "#111827",
     "websiteURL": "https://github.com/Oliver-Silas/terniq",
-    "composerIcon": "./assets/terniq-logo.png",
+    "composerIcon": "./assets/icons/icon-128.png",
     "logo": "./assets/terniq-logo.png",
     "screenshots": [
       "./assets/terniq-social-preview.png"
