@@ -1,0 +1,43 @@
+{
+  "name": "terniq",
+  "version": "0.1.0",
+  "description": "Codex-native workflow plugin for serious software work: planning, design, review, debugging, reading, research, writing, and environment health.",
+  "author": {
+    "name": "Yuzeiki",
+    "url": "https://github.com/yuzeiki"
+  },
+  "homepage": "https://github.com/yuzeiki/terniq",
+  "repository": "https://github.com/yuzeiki/terniq",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "workflow",
+    "review",
+    "debugging",
+    "research",
+    "writing",
+    "design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Terniq",
+    "shortDescription": "Codex-native workflows for serious software work",
+    "longDescription": "Use Terniq to plan before implementation, design interfaces with intent, review diffs before merge, debug from evidence, read sources cleanly, research unfamiliar domains, edit prose without AI stiffness, and audit the Codex environment itself.",
+    "developerName": "Yuzeiki",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Review this diff before I merge it",
+      "Help me debug this failing integration",
+      "Plan this feature before we implement it",
+      "Research this topic from primary sources",
+      "Audit my Codex setup and tell me what is drifting"
+    ],
+    "brandColor": "#111827",
+    "websiteURL": "https://github.com/yuzeiki/terniq"
+  }
+}

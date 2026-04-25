@@ -1,0 +1,20 @@
+{
+  "name": "terniq",
+  "interface": {
+    "displayName": "Terniq"
+  },
+  "plugins": [
+    {
+      "name": "terniq",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
