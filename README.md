@@ -1,52 +1,57 @@
-# Terniq
+<div align="center">
+  <img src="./assets/terniq-hero.png" alt="Terniq hero" width="1000" />
+  <h1>Terniq</h1>
+  <p><b>Codex-native workflows for serious software work.</b></p>
+  <p>Plan clearly. Build deliberately. Review responsibly.</p>
+  <a href="https://github.com/Oliver-Silas/terniq/stargazers"><img src="https://img.shields.io/github/stars/Oliver-Silas/terniq?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/Oliver-Silas/terniq/releases"><img src="https://img.shields.io/badge/version-v0.1.0-111827?style=flat-square" alt="Version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+  <img src="https://img.shields.io/badge/codex-native-0f172a?style=flat-square" alt="Codex Native">
+</div>
 
-Terniq is a Codex-native workflow plugin for serious software work.
+<br/>
 
-It adds a practical layer on top of coding agents:
+## Why
 
-- plan before implementation
+Most coding agents are fast, but vague at the exact moments that matter.
+
+They start coding before they pressure-test the problem. They patch bugs before isolating root cause. They "review" code without real verification. They rewrite text by changing the meaning instead of clarifying it.
+
+Terniq exists to package the opposite habits into reusable workflows Codex can actually run.
+
+It is not a random prompt pack. It is a compact operating layer:
+
+- think before implementation
 - debug from evidence
 - review before merge
-- design with intent
-- read and research without bluffing
-- edit writing without AI stiffness
-- audit the Codex environment itself
+- read before synthesizing
+- write without AI stiffness
+- audit the environment when behavior feels off
 
-Terniq is not trying to be another bag of prompts. It is a workflow pack:
+## Skills
 
-- `skills/` are the main workflows
-- `agents/` are specialist sidecars
-- `commands/` are explicit user entry points
+Each engineering habit maps to a focused skill.
 
-![Terniq workflow](./assets/terniq-workflow.svg)
+| Skill | When to use it | What it does |
+| :--- | :--- | :--- |
+| [`terniq-think`](./skills/terniq-think/SKILL.md) | Before building anything new | Shapes the problem, pressure-tests tradeoffs, and gives a cleaner implementation direction before code starts. |
+| [`terniq-design`](./skills/terniq-design/SKILL.md) | UI and frontend work | Pushes for intentional interface direction instead of generic AI defaults. |
+| [`terniq-check`](./skills/terniq-check/SKILL.md) | After a change, before merge | Reviews the diff, flags risk, asks for verification, and pulls in specialist reviewers when needed. |
+| [`terniq-hunt`](./skills/terniq-hunt/SKILL.md) | Any bug or failing behavior | Traces symptoms to root cause before a fix is proposed. |
+| [`terniq-read`](./skills/terniq-read/SKILL.md) | URLs, docs, and source material | Pulls content in cleanly so the next step can reason from actual inputs. |
+| [`terniq-learn`](./skills/terniq-learn/SKILL.md) | New domains or unfamiliar topics | Synthesizes what matters instead of dumping raw research notes. |
+| [`terniq-write`](./skills/terniq-write/SKILL.md) | Editing existing prose | Polishes writing without changing the author's meaning. |
+| [`terniq-health`](./skills/terniq-health/SKILL.md) | Codex setup or behavior drift | Audits plugins, routing, environment assumptions, and workflow drift. |
 
-## Why Terniq
+Each skill is backed by the same product shape:
 
-Most agent workflows fail in predictable ways:
+- `skills/` define the main workflow contracts
+- `agents/` provide specialist sidecars
+- `commands/` expose deterministic entry points
 
-- they code before they think
-- they patch before they isolate root cause
-- they "review" without real verification
-- they rewrite text by changing the meaning
+## Commands
 
-Terniq exists to push the opposite habits into the default loop.
-
-## What You Get
-
-### 8 core skills
-
-| Skill | What it does |
-| --- | --- |
-| `terniq-think` | plan, evaluate tradeoffs, and shape implementation before coding |
-| `terniq-design` | guide UI direction and frontend iteration with browser-aware discipline |
-| `terniq-check` | review diffs, triage changes, and enforce verification |
-| `terniq-hunt` | debug from symptoms to root cause before fixing |
-| `terniq-read` | ingest external links, pages, and documents cleanly |
-| `terniq-learn` | research unfamiliar topics and synthesize findings |
-| `terniq-write` | polish existing prose without changing meaning |
-| `terniq-health` | audit Codex environment drift, plugins, and workflow setup |
-
-### 8 explicit commands
+If you want stable invocation instead of relying on latent matching:
 
 - `/terniq:plan`
 - `/terniq:design`
@@ -57,15 +62,22 @@ Terniq exists to push the opposite habits into the default loop.
 - `/terniq:edit`
 - `/terniq:health`
 
-### 5 specialist agents
+## Chaining Skills
 
-- `reviewer-security`
-- `reviewer-architecture`
-- `reviewer-frontend`
-- `researcher`
-- `environment-auditor`
+Terniq is designed to chain, but transitions stay explicit.
 
-## Quick Start
+**Common workflows:**
+
+- **Design a feature**: `terniq-think` -> implement -> `terniq-check`
+- **Debug and verify**: `terniq-hunt` -> fix -> `terniq-check`
+- **Research and write**: `terniq-read` -> `terniq-learn` -> `terniq-write`
+- **Audit the environment**: `terniq-health` -> fix drift -> rerun `terniq-health`
+
+Each arrow is a deliberate user step. Skills do not silently trigger each other.
+
+## Install
+
+Terniq is currently distributed as a local Codex marketplace plugin.
 
 ### 1. Clone the repo
 
@@ -74,11 +86,9 @@ git clone https://github.com/Oliver-Silas/terniq.git
 cd terniq
 ```
 
-### 2. Create a local Codex marketplace wrapper
+### 2. Create the local marketplace wrapper
 
-Codex currently expects a marketplace root, not just a bare plugin repo.
-
-Use this once:
+Codex expects a marketplace root, not just a bare plugin repository.
 
 ```bash
 TERNIQ_REPO="$(pwd)"
@@ -121,20 +131,20 @@ codex plugin marketplace add "$HOME/.codex/local-marketplaces/terniq"
 
 ### 4. Enable the plugin
 
-Enable `terniq@terniq` in Codex plugin settings.
+Turn on `terniq@terniq` in Codex plugin settings.
 
-If you manage it through config directly, add:
+If you prefer config directly:
 
 ```toml
 [plugins."terniq@terniq"]
 enabled = true
 ```
 
-Then restart Codex if the current session does not hot-load the new plugin.
+Then restart Codex if the current session does not hot-load the plugin.
 
-## Try It In 2 Minutes
+## Try It
 
-After installation, start with any of these:
+Start with one of these:
 
 ```text
 /terniq:plan Help me shape this feature before implementation
@@ -152,43 +162,6 @@ Or use natural prompts:
 - "Read these docs, then summarize the tradeoffs."
 - "Check whether my Codex environment is drifting."
 
-## Typical Workflows
-
-Terniq is designed to chain cleanly:
-
-- `terniq-think` -> implement -> `terniq-check`
-- `terniq-hunt` -> fix -> `terniq-check`
-- `terniq-read` -> `terniq-learn` -> `terniq-write`
-- `terniq-design` -> browser verification -> `terniq-check`
-- `terniq-health` -> fix drift -> rerun `terniq-health`
-
-## How Terniq Is Organized
-
-### `skills/`
-
-This is the product surface. Each skill defines one durable workflow contract.
-
-### `agents/`
-
-These are specialist helpers used by the main workflows when the job gets broader or needs parallel scrutiny.
-
-### `commands/`
-
-These are deterministic entry points for users who want stable invocation instead of relying on latent matching.
-
-## Repository Layout
-
-```text
-terniq/
-├── .agents/         # local marketplace metadata kept in the repo
-├── .codex-plugin/   # plugin manifest
-├── agents/          # specialist sidecars
-├── commands/        # explicit /terniq:* commands
-├── docs/            # design notes and planning docs
-├── scripts/         # lightweight verification helpers
-└── skills/          # core workflow definitions
-```
-
 ## Verification
 
 After changing skill names, command ownership, or README workflow lists, run:
@@ -204,53 +177,43 @@ The script checks:
 - command ownership points to real skills
 - README and resolver still mention all skills and commands
 
-## Current Status
+## Repository Layout
 
-Terniq is usable today, but still early.
+```text
+terniq/
+├── .agents/         # local marketplace metadata
+├── .codex-plugin/   # plugin manifest
+├── agents/          # specialist sidecars
+├── assets/          # README visuals and brand assets
+├── commands/        # explicit /terniq:* entry points
+├── docs/            # design notes and planning docs
+├── scripts/         # lightweight verification helpers
+└── skills/          # core workflow definitions
+```
 
-Current state:
+## Background
 
-- full first-pass workflow suite is implemented
-- local Codex installation path is verified
-- commands, agents, and routing are in place
-- repo structure is stable enough for iteration
+Terniq is built around a simple belief:
 
-Still improving:
+AI should speed up good engineering habits, not replace them with vague confidence.
 
-- richer discovery metadata
-- smoother installation flow
-- better marketplace-ready assets
-- more real-world trigger testing
+That is why the project stays narrow:
 
-## Open Source Notes
+- one workflow per skill
+- small number of commands
+- clear boundaries between thinking, debugging, review, research, and writing
+- enough structure to be reusable, not so much structure that it becomes ceremony
 
-Terniq is published as an open repository so others can:
+## Contributing
 
-- install it locally
-- inspect how the workflows are structured
-- adapt the patterns into their own Codex setup
-- contribute improvements back upstream
+Ideas, fixes, and workflow improvements are welcome.
 
-If you want to contribute, start with [CONTRIBUTING.md](./CONTRIBUTING.md).
+Start here:
 
-## Who This Is For
-
-Terniq is a good fit if you:
-
-- use Codex heavily and want more disciplined workflows
-- review code often and care about verification, not just vibes
-- debug real systems and hate guess-first patching
-- want reusable workflows instead of one-off prompt snippets
-
-It is probably not for you if you only want generic "make this better" prompts with no structure.
-
-## Docs
-
+- [Contributing guide](./CONTRIBUTING.md)
 - [Design spec](./docs/2026-04-25-v1-design.md)
-- [Plugin manifest](./.codex-plugin/plugin.json)
 - [Skills map](./skills/AGENTS.md)
 - [Routing map](./skills/RESOLVER.md)
-- [Verification script](./scripts/verify-terniq.sh)
 
 ## License
 
